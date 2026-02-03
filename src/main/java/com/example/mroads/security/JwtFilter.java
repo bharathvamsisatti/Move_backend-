@@ -23,13 +23,15 @@ public class JwtFilter extends OncePerRequestFilter {
 	private final JwsUtils jwsUtils;
 
 	@Override
-	protected boolean shouldNotFilter(HttpServletRequest request) {
-	    String path = request.getServletPath();
+protected boolean shouldNotFilter(HttpServletRequest request) {
+    String path = request.getServletPath();
 
-	    return path.startsWith("/api/auth")
-	        || path.startsWith("/oauth2")
-	        || path.startsWith("/login/oauth2");
-	}
+    return "OPTIONS".equalsIgnoreCase(request.getMethod())
+        || path.startsWith("/api/auth")
+        || path.startsWith("/oauth2")
+        || path.startsWith("/login/oauth2");
+}
+
 
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
