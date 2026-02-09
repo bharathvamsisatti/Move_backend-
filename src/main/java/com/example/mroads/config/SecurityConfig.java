@@ -82,7 +82,8 @@ public CorsConfigurationSource corsConfigurationSource() {
 
     config.setAllowedOrigins(List.of(
             "http://localhost:5173",
-            "https://d1gtpopr7ewjhz.cloudfront.net"
+            "http://move-frontend.s3-website.ap-south-2.amazonaws.com"
+            
     ));
 
     config.setAllowedMethods(List.of(
@@ -96,7 +97,7 @@ public CorsConfigurationSource corsConfigurationSource() {
             "Origin"
     ));
 
-    config.setAllowCredentials(true);
+    config.setAllowCredentials(false);
 
     UrlBasedCorsConfigurationSource source =
             new UrlBasedCorsConfigurationSource();
